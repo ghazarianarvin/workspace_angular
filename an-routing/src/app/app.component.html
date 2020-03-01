@@ -1,8 +1,8 @@
-
-<a routerLink="/one">Display Component one</a>
-<br>
-<a [routerLink]="['/two', routParameter]">Display Component two</a>
-<br>
+<router-outlet name="topOutlet"></router-outlet>
+<a [routerLink]="[{ outlets: { topOutlet: ['oneOnTop'] } }]">Display Component one at the top of this page</a><br>
+<a [routerLink]="[{ outlets: { topOutlet: ['twoOnTop', routParameter]} } ]">Display Component two at the top of this page</a><br>
+<a [routerLink]="['/one']">Display Component one at the button of this page</a><br>
+<a [routerLink]="['/two', routParameter]">Display Component two at the button of this page</a><br>
 <label for="routerParam">Router param: </label>  <input type="text" [(ngModel)]="routParameter" id="routerParam">
 <!-- primary router outlet -->
 <router-outlet></router-outlet>
