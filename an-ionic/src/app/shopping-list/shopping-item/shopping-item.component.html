@@ -1,3 +1,21 @@
-<p>
-  shopping-item works!
-</p>
+<ion-item>
+    <ion-label color="primary" floating>Item:</ion-label>
+    <ion-input type="text" [(ngModel)]="currentShoppingItem.itemText"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label color="primary" floating>Amount:</ion-label>
+    <ion-input type="number" [(ngModel)]="currentShoppingItem.amount"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label color="primary">Item type:</ion-label>
+    <ion-select value="meat" okText="ok" cancelText="close" [(ngModel)]="currentShoppingItem.itemType">
+        <ion-select-option value="meat">Meat</ion-select-option>
+        <ion-select-option value="grains">Grains</ion-select-option>
+        <ion-select-option value="vegetables">Veggies</ion-select-option>
+        <ion-select-option value="fruit">Fruit</ion-select-option>
+    </ion-select>
+</ion-item>
+
+<ion-button (click)="add()">Add to List</ion-button>
+
+

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ShoppingItem} from '../shared/ShoppingItem';
+import {ShoppingItemType} from '../shared/ShoppingItemType';
 
 @Component({
   selector: 'app-shopping-item',
@@ -7,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingItemComponent implements OnInit {
 
+  @Output()
+  onShoppingItemAdd = new EventEmitter<ShoppingItem>();
+  currentShoppingItem: ShoppingItem;
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentShoppingItem = new ShoppingItem();
+  }
 
+  add() {
+    this.onShoppingItemAdd.emit(this.currentShoppingItem);
+    this.currentShoppingItem = new ShoppingItem();
+  }
 }

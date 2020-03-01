@@ -1,3 +1,4 @@
-<p>
-  shopping-item-list works!
-</p>
+<div *ngFor="let shoppingItem of shoppingItems">
+  <p [ngStyle]="{'background-color': getColorFor(shoppingItem.itemType)}">Buy {{shoppingItem.amount + " X "+  shoppingItem.itemText}}</p>
+
+</div>

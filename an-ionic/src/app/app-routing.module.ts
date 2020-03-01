@@ -4,8 +4,11 @@ import {MenuComponent} from './menu/menu.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 
 const routes: Routes = [
-  {path: '', component: MenuComponent},
-  {path: 'shoppingList', component: ShoppingListComponent}
+  {path: 'menu', component: MenuComponent, children: [
+      {path: 'shoppingList', component: ShoppingListComponent}
+    ]
+  },
+  {path: '', redirectTo: '/menu', pathMatch: 'full'}
 ];
 
 @NgModule({
