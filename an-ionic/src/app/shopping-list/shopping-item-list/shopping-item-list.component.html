@@ -1,4 +1,5 @@
 <div *ngFor="let shoppingItem of shoppingItems">
-  <p [ngStyle]="{'background-color': getColorFor(shoppingItem.itemType)}">Buy {{shoppingItem.amount + " X "+  shoppingItem.itemText}}</p>
-
+  <p [ngStyle]="{'background-color': shoppingItem.itemType.color }">Buy {{shoppingItem.amount + " X "+  shoppingItem.itemText + " " + shoppingItem.itemType.type}}</p>
 </div>
+<ion-button color="danger" *ngIf="shoppingItems.length != 0" (click)="shoppingItems = []">reset shopping list</ion-button>
+<div *ngIf="shoppingItems.length === 0"><p>Not shopping item list is empty.</p></div>

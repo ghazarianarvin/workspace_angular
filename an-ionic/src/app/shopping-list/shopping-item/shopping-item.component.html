@@ -4,15 +4,12 @@
 </ion-item>
 <ion-item>
     <ion-label color="primary" floating>Amount:</ion-label>
-    <ion-input type="number" [(ngModel)]="currentShoppingItem.amount"></ion-input>
+    <ion-input type="number" [(ngModel)]="currentShoppingItem.amount" min="0" max="100"></ion-input>
 </ion-item>
 <ion-item>
     <ion-label color="primary">Item type:</ion-label>
     <ion-select value="meat" okText="ok" cancelText="close" [(ngModel)]="currentShoppingItem.itemType">
-        <ion-select-option value="meat">Meat</ion-select-option>
-        <ion-select-option value="grains">Grains</ion-select-option>
-        <ion-select-option value="vegetables">Veggies</ion-select-option>
-        <ion-select-option value="fruit">Fruit</ion-select-option>
+        <ion-select-option *ngFor="let t of shoppingItemTypes()" [value]="t">{{t.type}}</ion-select-option>
     </ion-select>
 </ion-item>
 

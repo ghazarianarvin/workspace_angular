@@ -23,4 +23,8 @@ export class ShoppingItemComponent implements OnInit {
     this.onShoppingItemAdd.emit(this.currentShoppingItem);
     this.currentShoppingItem = new ShoppingItem();
   }
+
+  shoppingItemTypes() {
+    return ShoppingItemType.getAllShoppingItemTypes();
+  }
 }
