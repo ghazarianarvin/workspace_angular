@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DogApiService} from './shared/dog-api.service';
+import {DogBreed} from './shared/DogBreed';
 
 @Component({
   selector: 'app-dog-information',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DogInformationComponent implements OnInit {
 
-  constructor() { }
+  dogBreeds: DogBreed[];
 
-  ngOnInit() {}
+  constructor(private dogApi: DogApiService) { }
 
+  ngOnInit() {
+    this.getAllBreeds();
+  }
+
+  getAllBreeds() {
+    this.dogApi.getDogBreeds().subscribe(res => {
+      this.dogBreeds = res;
+    });
+  }
 }
