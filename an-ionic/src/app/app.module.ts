@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,14 +14,20 @@ import { AppRoutingModule } from './app-routing.module';
 import {ShoppingItemComponent} from './shopping-list/shopping-item/shopping-item.component';
 import {FormsModule} from '@angular/forms';
 import {ShoppingItemListComponent} from './shopping-list/shopping-item-list/shopping-item-list.component';
+import {DogInformationComponent} from './dog-information/dog-information.component';
+import {DogApiService} from './dog-information/shared/dog-api.service';
+import {DogDetailComponent} from './dog-information/dog-detail/dog-detail.component';
 
 @NgModule({
-    declarations: [AppComponent, MenuComponent, ShoppingListComponent, ShoppingItemComponent, ShoppingItemListComponent],
+  declarations: [AppComponent, MenuComponent, ShoppingListComponent,
+    ShoppingItemComponent, ShoppingItemListComponent, DogInformationComponent,
+    DogDetailComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
+      DogApiService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
