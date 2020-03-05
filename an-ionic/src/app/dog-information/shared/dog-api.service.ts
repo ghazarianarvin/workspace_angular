@@ -9,21 +9,34 @@ import {catchError, map, retry} from 'rxjs/operators';
 })
 export class DogApiService {
 
-    private url = 'https://dog.ceo/api/breeds/list/all';
+    private breedUrl = 'https://dog.ceo/api/breeds/list/all';
+    private imgUrlPrefix = 'https://dog.ceo/api/breed/';
+    private imgUrlPostfix = '/images/random';
 
     constructor(private http: HttpClient) {
     }
 
     getDogBreeds() {
-        return this.http.get<DogBreed[]>(this.url).pipe(
+        return this.http.get<DogBreed[]>(this.breedUrl).pipe(
             map(this.mapToDogBreed),
             retry(1),
             catchError(err => throwError(err))
         );
     }
 
+    getBreedImageUrl(breed: string) {
+        return this.http.get<string>(this.imgUrlPrefix + breed + this.imgUrlPostfix).pipe(
+            map(this.mapToUrl),
+            retry(1),
+            catchError(err => throwError(err))
+        );
+    }
+
+    private mapToUrl(data) {
+        return data.message;
+    }
+
     private mapToDogBreed(data) {
-        console.log(data);
         const result: DogBreed[] = [];
         Object.keys(data.message).forEach(key => {
             if (data.message[key].length > 0) {
@@ -33,8 +46,8 @@ export class DogApiService {
                 result.push(new DogBreed(key));
             }
         });
-        console.log(result.length);
         return result;
     }
+
 
 }

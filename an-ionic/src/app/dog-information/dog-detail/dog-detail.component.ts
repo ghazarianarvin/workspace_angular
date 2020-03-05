@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {DogBreed} from '../shared/DogBreed';
 
 @Component({
   selector: 'app-dog-detail',
@@ -7,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DogDetailComponent implements OnInit {
 
-  constructor() { }
+  selectedBreed: DogBreed;
 
-  ngOnInit() {}
+  ngOnInit() {
 
+  }
 }

@@ -10,10 +10,7 @@ const routes: Routes = [
         path: 'menu', component: MenuComponent,
         children: [
             {path: 'shoppingList', component: ShoppingListComponent},
-            {
-                path: 'dogApi', component: DogInformationComponent,
-                children: [{path: 'breedDetails/:breed', component: DogDetailComponent, outlet: 'breedDetailsOutlet'}]
-            }
+            {path: 'dogApi', component: DogInformationComponent}
         ]
     },
     {path: '', redirectTo: '/menu', pathMatch: 'full'}

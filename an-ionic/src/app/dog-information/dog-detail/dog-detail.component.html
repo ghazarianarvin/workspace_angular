@@ -1,3 +1,4 @@
 <p>
-  dog-detail works!
+{{selectedBreed != null ? selectedBreed.breed : ''}}
+<img *ngIf="selectedBreed != null" [src]="selectedBreed.imageUrl">
 </p>
