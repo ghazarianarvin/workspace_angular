@@ -40,7 +40,6 @@ export class DogApiService {
         const result: DogBreed[] = [];
         Object.keys(data.message).forEach(key => {
             if (data.message[key].length > 0) {
-                console.log('sub breed found');
                 data.message[key].forEach(subBreed => result.push(new DogBreed(subBreed)));
             } else {
                 result.push(new DogBreed(key));

@@ -1,4 +1,7 @@
-<p>
-{{selectedBreed != null ? selectedBreed.breed : ''}}
-<img *ngIf="selectedBreed != null" [src]="selectedBreed.imageUrl">
-</p>
+
+<div *ngIf="selectedBreed != null && selectedBreed.imageUrl != null; else imageNotFound">
+    <img  [src]="selectedBreed.imageUrl">
+</div>
+<ng-template #imageNotFound>No image found for selected breed</ng-template>
+
+
