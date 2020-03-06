@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-button [color]="subscription == null ? 'success' : 'danger'"
+          (click)="subscribe()">{{subscription == null ? 'subscribe to observable' : 'unsubscribe now'}}
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let rString of randomStrings">
+      <p>{{rString}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+

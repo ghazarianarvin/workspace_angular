@@ -17,11 +17,12 @@ import {ShoppingItemListComponent} from './shopping-list/shopping-item-list/shop
 import {DogInformationComponent} from './dog-information/dog-information.component';
 import {DogApiService} from './dog-information/shared/dog-api.service';
 import {DogDetailComponent} from './dog-information/dog-detail/dog-detail.component';
+import {ObservableExampleComponent} from './observable-example/observable-example.component';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, ShoppingListComponent,
     ShoppingItemComponent, ShoppingItemListComponent, DogInformationComponent,
-    DogDetailComponent],
+    DogDetailComponent, ObservableExampleComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
